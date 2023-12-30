@@ -30,8 +30,9 @@ public class _02_TextUndoRedo implements KeyListener {
 	JLabel label = new JLabel();
 	JTextField field = new JTextField();
 	
-	public void text() {
+	public void water() {
 		
+		//frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		frame.setSize(500,500);
 		frame.setVisible(true);
 		frame.add(panel);
@@ -44,8 +45,9 @@ public class _02_TextUndoRedo implements KeyListener {
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
-		label.add(field, e.getKeyChar());
-		if(e.) {
+		System.out.println(e.getKeyChar());
+		//field.add(field, e.getKeyChar());
+		if(true) {
 			
 		}
 	}
@@ -62,10 +64,3 @@ public class _02_TextUndoRedo implements KeyListener {
 		
 	}
 }
-
-//lookinmyeyestellmeyourtaledoyouseetheroadthemaptomysoullooktellmethesignswheneverthesmokeclearoutofmyfaceamipictureperfectordoilookfriedallofthatgreenandyellowthatdripfromyoureyes
-//istellintellyourdemiseiwenttomysidetopushbacktheceilingandpushbackmyfeelingsihadtodecideireplaythemnights vbucksonmeeverydayijusttwohundredpumpedanopptotheface igotthesebandsigot
-//breadfinnacookupbigflawlessdiamondsbittheysitonmywristtheysaytheywontsignthatlilkidforsomecheeseitoldemjusteatemimalreadyrichthisbro kakageyokonomuneafureterukodokudashteka
-//ikirenainarajiyuudanabakanayumeikimemienaisakiwoterashiteyukujiyunoashidetryeeyieeyiasekainohatewotomonimiyoujibunoashidetryiyiyiyiyyi idontbegivingnofortsidontknowifyoucaughton
-//idontbegivingnofortsisaywhateveriwantidowhateveriwanticountupthismoneyforfunandimpoppingthesepercsjustforfunallofmytwizgotagunallofmytwizontherunallofmytwizcutemupandisleepin
-//thedayonsomesun
