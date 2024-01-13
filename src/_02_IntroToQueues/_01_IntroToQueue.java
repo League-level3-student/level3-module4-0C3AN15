@@ -37,6 +37,7 @@ import java.util.Stack;
 
 public class _01_IntroToQueue {
     public static void main(String[] args) {
+    	
         // 1. Create a Stack of Doubles using the Stack class
         //    Note: you have to use the capitalized Double and not double
     	Stack<Double> count = new Stack<Double>();
@@ -53,14 +54,14 @@ public class _01_IntroToQueue {
         // 5. Print and remove a random number of elements, from 1 to 5 elements,
         //    from the front of the Queue. Example:
         //    "removing 3 elements from Queue: 25 57 2"
-    	int newwrld = rand.nextInt();
-    	System.out.println(newwrld);
-    	for(int i=0;i<newwrld;i++) {
+    	int neww = rand.nextInt(5);
+    	System.out.println(neww);
+    	for(int i=0;i<neww;i++) {
     		Double old = q.remove();
     		System.out.println(old);
     	}
         // 6. Pop off as many elements from the stack to fill the Queue with 5
-        //    elements. If there aren't enough elements in the Stack to fill the 
+        //    elements. If there aren't enough elements in the Stack to fill the
         //    queue, fill the queue as much as possible. 
     	for(int i=0;i<count.size()-5;i++) {
     		Double temp = count.pop();
@@ -71,3 +72,6 @@ public class _01_IntroToQueue {
     	
     }
 }
+/*
+
+*/
