@@ -50,15 +50,20 @@ public class _01_IntroToQueue {
         //    Note: you have to use the capitalized Double and not double
     	ArrayDeque<Double> q = new ArrayDeque<Double>();
         // 4. Pop off 5 elements from the Stack and add them to the Queue 
-    	q.add(count.pop());
+    	for(int j=0;j<101;j++) {
+    	
+    	for(int i=0;i<5;i++) {
+    		q.add(count.pop());
+    	}
         // 5. Print and remove a random number of elements, from 1 to 5 elements,
         //    from the front of the Queue. Example:
         //    "removing 3 elements from Queue: 25 57 2"
     	int neww = rand.nextInt(5);
     	System.out.println(neww);
     	for(int i=0;i<neww;i++) {
-    		Double old = q.remove();
-    		System.out.println(old);
+    		//Double old = q.remove();
+    		
+    		System.out.println("q being removed" + q.remove());
     	}
         // 6. Pop off as many elements from the stack to fill the Queue with 5
         //    elements. If there aren't enough elements in the Stack to fill the
@@ -69,7 +74,12 @@ public class _01_IntroToQueue {
     	}
         // 7. Loop until there are no more elements in either the Stack or Queue
         //    and all the elements are printed
-    	
+    		//ok (idonttrustasoulidonttrustnobodythrewupoffsomepillsidonttrustmyownbodyyouwouldtakehershoppingyoutookhertochromeprollyitonlytookmeonecalligot
+    		// thedomeoutherjusthitthishoherboyfriendbookmeforashowaahimrockinwhiteandgolditlookslikeigotmobtieswatercominginandoutitneverwasadroughtfrickthe
+    		//oppositionshittheystripthenairitoutpayattentionpayattentionpayattentionfinnashowyouhowtogetitfirstyoumakeahundredmovingwhippingchickensthenyou
+    		//staydownstackyourracksdonteverspendemforgiattospanoramassmoothspinninextragreenupinmypocketslooklikespinachiputgoldallinmymouthihatethedentist
+    		//gonpourtwomorelinesthenimfinishedisaaaaaaidbetterlatethanneverbetterlatethannever)
+    	}
     }
 }
 /*
