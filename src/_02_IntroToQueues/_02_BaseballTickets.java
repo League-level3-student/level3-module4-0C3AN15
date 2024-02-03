@@ -93,26 +93,32 @@ public class _02_BaseballTickets {
     }
     
     public static int calculateWaitTime( ArrayDeque<Integer> ticketsQueue, int position ) {
-    	int same = 5-position;
-    	int loop = 5;
+    	int same = position+1;
+    	int loop = 1;
+    	int temp = 100;
     	
     	for(int i=0;i<21;i++) {
     		System.out.println(ticketsQueue);
-    		System.out.println(position);
-    		
+    		System.out.println(same + " " + position);
     		if(same == loop) {
-    			same = 0;
-    			System.out.println("same");
+    			same = 6-loop;
+    			System.out.println("same" + loop);
+    		}
+    		else {
+    			same--;
     		}
     		
-    		int temp = ticketsQueue.remove() - 1;
+    		temp = ticketsQueue.remove() - 1;
         	if(temp > 0) {
 	        	ticketsQueue.add(temp);
         	}
-    		    		
-    		same++;
+        	else {
+        		loop++;
+        	}
+        	
     	}
     	
     	return 0;
     }
 }
+//
