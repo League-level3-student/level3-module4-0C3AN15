@@ -33,92 +33,36 @@ import java.util.ArrayDeque;
  */
 
 public class _02_BaseballTickets {
-
-    public static int calculateWaitTime2( ArrayDeque<Integer> ticketsQueue, int position ) {
-        int min = 0;
-        int same = position;
-        
-        for(int i=0;i<21;i++) {
-        	System.out.println(ticketsQueue);
-        	System.out.println(position);
-        	        	
-        	int temp = ticketsQueue.remove();
-        	if(temp - 1 > 0) {
-	        	ticketsQueue.add(temp - 1);
-        	}
-        	
-        	if(same == 5) {
-        		same = 0;
-        	}
-        	if(temp == 0) {
-        		System.out.println("wofjowjfiowejfoiwejf");
-    			return min;
-    		}
-        	        	
-        	min++;
-        	same++;
-        }
-        
-        return 0;
-    }
-    
-    public static int calculateWaitTime3( ArrayDeque<Integer> ticketsQueue, int position ) {
-        int min = 0;
-        int same = 5 - position;
-        
-        for(int i=0;i<21;i++) {
-        	System.out.println(ticketsQueue);
-        	System.out.println(position);
-        	
-        	int temp = ticketsQueue.remove() - 1;
-        	if(temp > 0) {
-	        	ticketsQueue.add(temp);
-        	}
-        	
-        	if(same == 5) {
-        		System.out.println(temp);
-        		same = 0;
-        		if(temp == 1) {
-        			System.out.println("iamsdoiasmdoiamdoiasmdasd");
-        			System.out.println(min+1);
-        			return min+1;
-        		}
-        	}
-        	
-        	min++;
-        	same++;
-        }
-        
-        return 0;
-    }
     
     public static int calculateWaitTime( ArrayDeque<Integer> ticketsQueue, int position ) {
-    	int same = position+1;
-    	int loop = 1;
     	int temp = 100;
+    	int min = 0;
     	
-    	for(int i=0;i<21;i++) {
-    		System.out.println(ticketsQueue);
-    		System.out.println(same + " " + position);
-    		if(same == loop) {
-    			same = 6-loop;
-    			System.out.println("same" + loop);
-    		}
-    		else {
-    			same--;
-    		}
+    	while(true) {
+    		//System.out.println(ticketsQueue);
+    		//System.out.println(position + " " + position);
     		
     		temp = ticketsQueue.remove() - 1;
         	if(temp > 0) {
 	        	ticketsQueue.add(temp);
         	}
         	else {
-        		loop++;
+        		if(position == 0) {
+        			return min+1;
+        		}
+        		
         	}
         	
+        	if(position == 0) {
+    			position = ticketsQueue.size()-1;
+    		}
+    		else {
+    			position--;
+    		}
+        	
+        	min++;
     	}
     	
-    	return 0;
     }
 }
 //
