@@ -1,9 +1,11 @@
 package _04_Maze_Maker;
 import java.awt.Graphics;
+import java.sql.Array;
 
 public class Maze {
     // 1. Create a 2D array of cells. Don't initialize it.
-    
+    Cell[][] cell;
+	
     private int rows;
     private int cols;
 
@@ -12,10 +14,14 @@ public class Maze {
         this.cols = cols;
 
         // 2. Initialize the cells array using the rows and cols variables
-
+        cell = new Cell[rows][cols];
         // 3. Iterate through each cell and initialize it
         //    using row and col as the cell location
-
+        for(int i=0;i<rows;i++) {
+        	for(int j=0;j<cols;j++) {
+        		cell[i][j] = idkbruforgot;
+        	}
+        }
     }
 
     // 4. This method iterates through the cells and draws them
