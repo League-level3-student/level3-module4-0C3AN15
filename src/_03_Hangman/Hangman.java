@@ -5,29 +5,39 @@ import java.awt.event.KeyListener;
 import java.util.Random;
 import java.util.Stack;
 
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 public class Hangman implements KeyListener {
 	
-	String numb = JOptionPane.showInputDialog("Number:");
-	int num = Integer.parseInt(numb);
-	Stack<String> game = new Stack<String>();
+	static String numb = JOptionPane.showInputDialog("Number:");
+	static int num = Integer.parseInt(numb);
+	static Stack<String> game = new Stack<String>();
 	
 	Random rand = new Random();
-	JLabel label = new JLabel();
+	static JLabel label = new JLabel();
+	static JFrame frame = new JFrame();
+	static JTextField field = new JTextField();
 	int lives = 3;
-	String word;
-	int wordLong;
+	static String word;
+	static int wordLength;
 	
-	public void main(String[] args) {
+	public static void main(String[] args) {
+		
+	frame.setVisible(true);
+	frame.add(label);
+	frame.setSize(500,500);
+	//frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 	
 	for(int i=0;i<num;i++) {
 		System.out.println(game.push(Utilities.readRandomLineFromFile("dictionary.txt")));
 	}
 	
 	word = game.pop();
-	wordLong = word.length();
+	wordLength = word.length();
+	label.setText(word);
 	
 	}
 
@@ -36,7 +46,7 @@ public class Hangman implements KeyListener {
 		// TODO Auto-generated method stub
 		String key = arg0.toString();
 		if(word.contains(key)) {
-			
+			System.out.println(key);
 		}
 	}
 
