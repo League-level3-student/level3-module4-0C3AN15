@@ -8,6 +8,7 @@ import java.util.Stack;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class Hangman implements KeyListener {
@@ -16,12 +17,14 @@ public class Hangman implements KeyListener {
 	int num = Integer.parseInt(numb);
 	Stack<String> game = new Stack<String>();
 	String[] guesses;
-	String visual = "";
+	String undscore = "";
 	
 	Random rand = new Random();
+	JPanel panel = new JPanel();
 	JLabel label = new JLabel();
+	JLabel livesLabel = new JLabel();
 	JFrame frame = new JFrame();
-	JTextField field = new JTextField();
+	//JTextField field = new JTextField();
 	int lives = 3;
 	String word;
 	int wordLength;
@@ -29,7 +32,10 @@ public class Hangman implements KeyListener {
 	void main() {
 		
 	frame.setVisible(true);
-	frame.add(label);
+	frame.add(panel);
+	panel.add(label);
+	panel.add(livesLabel);
+	livesLabel.setText("Lives: " + lives);
 	frame.setSize(500,500);
 	frame.addKeyListener(this);
 	//frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -42,11 +48,23 @@ public class Hangman implements KeyListener {
 	wordLength = word.length();
 	guesses = new String[wordLength];
 	for(int i=0;i<wordLength;i++) {
-		guesses[i] = "_";
+		guesses[i] = "_ ";
+		undscore = undscore + guesses[i];
 	}
-	visual = "_"; //hhhhhhhh
-	label.setText(visual);
 	
+	label.setText(undscore);
+	
+	}
+	
+	void newWord() {
+		word = game.pop();
+		wordLength = word.length();
+		guesses = new String[wordLength];
+		for(int i=0;i<wordLength;i++) {
+			guesses[i] = "_ ";
+			undscore = undscore + guesses[i];
+		}
+		label.setText(undscore);
 	}
 
 	@Override
@@ -66,13 +84,41 @@ public class Hangman implements KeyListener {
 		// TODO Auto-generated method stub
 		char key2 = arg0.getKeyChar();
 		String key = "" + key2;
+		String temp = "";
 		if(word.contains(key)) {
-			System.out.println(key);
-			
-			
+			for(int i=0;i<wordLength;i++) {
+				if(word.charAt(i) == key2) {
+					guesses[i] = key2 + " ";
+				}
+				temp = temp + guesses[i];
+			}
+			label.setText(temp);
+		}
+		else {
+			lives--;
+			livesLabel.setText("Lives: " + lives);
 		}
 		
+		if(!(label.getText().contains("_"))) {
+			newWord();
+		}
 		
+		if(lives <= 0) {
+			String yes = JOptionPane.showInputDialog("gg. play again y/n?");
+			yes.toLowerCase();
+			if(yes.equals("yes")) {
+				for(int i=0;i<num;i++) {
+					game.pop();
+					System.out.println(game.push(Utilities.readRandomLineFromFile("dictionary.txt")));
+				}
+				
+				newWord();
+			}
+			else {
+				System.exit(0);
+			}
+			
+		}
 		
 	}
 }
