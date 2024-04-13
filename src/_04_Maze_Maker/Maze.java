@@ -19,19 +19,23 @@ public class Maze {
         //    using row and col as the cell location
         for(int i=0;i<rows;i++) {
         	for(int j=0;j<cols;j++) {
-        		cell[i][j] = idkbruforgot;
+        		cell[i][j] = new Cell(i,j);
         	}
         }
     }
 
     // 4. This method iterates through the cells and draws them
     public void draw(Graphics g) {
-
+    	for(int i=0;i<rows;i++) {
+        	for(int j=0;j<cols;j++) {
+        		cell[i][j].draw(g);
+        	}
+        }
     }
 
     // 5. This method returns the selected cell
     public Cell getCell(int row, int col){
-        return  null;
+        return cell[row][col];
     }
 
     public int getRows() {
